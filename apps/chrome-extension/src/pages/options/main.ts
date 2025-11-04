@@ -9,6 +9,7 @@ import { i18n } from '@/pages/shared/i18n'
 import App from './options.vue'
 import General from './general.vue'
 import Download from './download.vue'
+import Domains from './domains.vue'
 import { initTheme } from '../shared/theme'
 import '../shared/shared.css'
 import './main.css'
@@ -23,6 +24,11 @@ const routes: readonly RouteRecordRaw[] = [
     path: '/download',
     name: 'download',
     component: Download,
+  },
+  {
+    path: '/domains',
+    name: 'domains',
+    component: Domains,
   },
   {
     path: '/',

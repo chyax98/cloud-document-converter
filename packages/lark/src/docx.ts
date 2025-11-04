@@ -1221,7 +1221,22 @@ export class Docx {
       return null
     }
 
-    return PageMain.blockManager.rootBlockModel
+    const blockManager = PageMain.blockManager
+
+    // 新版 API（公有云飞书）
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    if (blockManager.rootBlockModel) {
+      return blockManager.rootBlockModel
+    }
+
+    // 旧版 API（企业定制飞书）
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
+    if (blockManager.model?.rootBlockModel) {
+      // eslint-disable-next-line @typescript-eslint/no-deprecated
+      return blockManager.model.rootBlockModel
+    }
+
+    return null
   }
 
   get language(): 'zh' | 'en' {

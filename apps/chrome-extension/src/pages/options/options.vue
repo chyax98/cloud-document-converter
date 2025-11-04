@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, useRoute } from 'vue-router'
 import { cva } from 'class-variance-authority'
-import { SettingsIcon, Download } from 'lucide-vue-next'
+import { SettingsIcon, Download, Globe } from 'lucide-vue-next'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -58,6 +58,12 @@ useInitTheme()
               {{ t('download') }}
             </RouterLink>
           </li>
+          <li class="w-full">
+            <RouterLink :class="cn(menuItemLinkVariants())" to="/domains">
+              <Globe class="h-5 w-5" />
+              {{ t('domains') }}
+            </RouterLink>
+          </li>
         </ul>
       </div>
     </div>
@@ -91,6 +97,12 @@ useInitTheme()
                     <DropdownMenuCheckboxItem
                       :model-value="route.name === 'download'"
                       >{{ t('download') }}
+                    </DropdownMenuCheckboxItem>
+                  </RouterLink>
+                  <RouterLink to="/domains">
+                    <DropdownMenuCheckboxItem
+                      :model-value="route.name === 'domains'"
+                      >{{ t('domains') }}
                     </DropdownMenuCheckboxItem>
                   </RouterLink>
                 </DropdownMenuContent>

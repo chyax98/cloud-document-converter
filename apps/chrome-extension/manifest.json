@@ -27,6 +27,7 @@
     "https://*.larkoffice.com/*",
     "https://*.larkenterprise.com/*"
   ],
+  "optional_host_permissions": ["https://*/*"],
   "content_scripts": [
     {
       "matches": [
